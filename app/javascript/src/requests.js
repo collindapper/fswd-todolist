@@ -33,6 +33,7 @@ export var postTask = function (content, successCB, errorCB) {
   }
 
   $.ajax(request);
+  
 }
 
 // DELETE Tasks
@@ -45,7 +46,6 @@ export var deleteTask = function (taskid, successCB, errorCB) {
   }
   
   $.ajax(request);
-  location.reload();
 };
 
 // MARK COMPLETE
