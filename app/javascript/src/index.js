@@ -24,7 +24,7 @@ indexTasks(function (response) {
 
 
 
-$(document).on('click', "#addTask", function(event){
+$(document).on('click', ".btn-add", function(event){
   event.preventDefault();
 
   var input = $('#taskInput').val();
