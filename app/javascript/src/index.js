@@ -30,7 +30,6 @@ $(document).on('click', ".btn-add", function(event){
   var input = $('#taskInput').val();
   postTask(input);
   $('#taskInput').val('');
-  location.reload(true);
 })
 
 $(document).on('click', "#removeTask", function(event){
