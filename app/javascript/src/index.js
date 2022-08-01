@@ -8,19 +8,19 @@ import {
   markActive
 } from "./requests.js";
 
-indexTasks(function (response) {
-  var htmlString = response.tasks.map(function(task) {
+  indexTasks(function (response) {
+    var htmlString = response.tasks.map(function(task) {
 
-      if (!task.completed) {
-      return "<tr class='spacetable'> <td class='task'>" + task.content + "</td> <td><input class='form-check-input' type='checkbox' data-id='"+ task.id + "'></td> <td><button class='btn btn-danger btn-remove' id ='removeTask' data-id ='" + task.id + "'>Remove</button></td></tr>";
-      }
-      else if (task.completed) {
-        return "<tr class='spacetable'> <td class='task'>" + task.content + "</td> <td><input class='form-check-input' type='checkbox' data-id='"+ task.id + "' checked></td> <td><button class='btn btn-danger btn-remove' id ='removeTask' data-id ='" + task.id + "'>Remove</button></td></tr>";
-      }
+        if (!task.completed) {
+        return "<tr class='spacetable'> <td class='task'>" + task.content + "</td> <td><input class='form-check-input' type='checkbox' data-id='"+ task.id + "'></td> <td><button class='btn btn-danger btn-remove' id ='removeTask' data-id ='" + task.id + "'>Remove</button></td></tr>";
+        }
+        else if (task.completed) {
+          return "<tr class='spacetable'> <td class='task'>" + task.content + "</td> <td><input class='form-check-input' type='checkbox' data-id='"+ task.id + "' checked></td> <td><button class='btn btn-danger btn-remove' id ='removeTask' data-id ='" + task.id + "'>Remove</button></td></tr>";
+        }
+    });
+
+    $("#tasks").html(htmlString);
   });
-
-  $("#tasks").html(htmlString);
-});
 
 
 
@@ -29,6 +29,7 @@ $(document).on('click', ".btn-add", function(event){
 
   var input = $('#taskInput').val();
   postTask(input);
+  $('#taskInput').val('');
 })
 
 $(document).on('click', "#removeTask", function(event){
