@@ -30,7 +30,6 @@ $(document).on('click', ".btn-add", function(event){
   var input = $('#taskInput').val();
   postTask(input);
   $('#taskInput').val('');
-  indexTasks();
 })
 
 $(document).on('click', "#removeTask", function(event){

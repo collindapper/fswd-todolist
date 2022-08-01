@@ -33,7 +33,7 @@ export var postTask = function (content, successCB, errorCB) {
   }
 
   $.ajax(request);
-  
+
 }
 
 // DELETE Tasks
