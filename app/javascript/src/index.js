@@ -29,13 +29,11 @@ $(document).on('click', "#addTask", function(event){
 
   var input = $('#taskInput').val();
   postTask(input);
-  indexTasks();
 })
 
 $(document).on('click', "#removeTask", function(event){
   var taskid = $(this).attr('data-id');
   deleteTask(taskid);
-  indexTasks();
 })
 
 
