@@ -17,7 +17,7 @@ module Api
     end
 
     def create
-      user = User.find_by(id: params[:api_key])
+      user = User.first
       @task = user.tasks.new(task_params)
 
       return render 'bad_request', status: :bad_request if not @task.save
@@ -67,18 +67,19 @@ module Api
     end
 
     def validate_user
-      user = User.find_by(id: params[:api_key])
-      return render json: {
-        status: '401',
-        title:  'Unauthorized User',
-        detail: 'User is not found.'
-      }, status: :unauthorized unless user
+      # user = User.find_by(id: params[:api_key])
+      # return render json: {
+      #   status: '401',
+      #   title:  'Unauthorized User',
+      #   detail: 'User is not found.'
+      # }, status: :unauthorized unless user
 
-      if user
-        return true
-      else
-        return false
-      end
+      # if user
+      #   return true
+      # else
+      #   return false
+      # end
+      true
     end
   end
 end

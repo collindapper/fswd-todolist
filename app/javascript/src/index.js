@@ -25,13 +25,17 @@ indexTasks(function (response) {
 
 
 $(document).on('click', "#addTask", function(event){
+  event.preventDefault();
+
   var input = $('#taskInput').val();
   postTask(input);
+  indexTasks();
 })
 
 $(document).on('click', "#removeTask", function(event){
   var taskid = $(this).attr('data-id');
   deleteTask(taskid);
+  indexTasks();
 })
 
 
